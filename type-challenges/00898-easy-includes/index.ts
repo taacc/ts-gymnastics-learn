@@ -1,0 +1,2 @@
+type myEqual<X, Y> = (<T>() => T extends X ? 1 : 2) extends (<R>() => R extends Y ? 1 : 2) ? true : false
+export type Includes<T extends readonly any[], U> = T extends [infer first, ...infer rest] ? myEqual<first, U> extends true ? true : Includes<rest, U> : false
